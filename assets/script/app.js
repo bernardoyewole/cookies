@@ -17,6 +17,11 @@ function showModal() {
 onEvent('load', window, () => {
     if (!document.cookie.length > 0) {
         setTimeout(showModal, 2000);
+    } else {
+        print(`Browser: ${getCookie('Browser')}`);
+        print(`Operating system: ${getCookie('Operating system')}`);
+        print(`Screen width: ${getCookie('Screen width')}`);
+        print(`Screen height: ${getCookie('Screen height')}`);
     }
 });
 
@@ -24,29 +29,48 @@ onEvent('click', settingsBtn, () => {
     modalTwo.classList.add('block');
 });
 
+function setAllCookies() {
+    setCookie('Browser', getBrowser(), 5);
+    setCookie('Operating system', getOS(), 5);
+    setCookie('Screen width', getScreenWidth(), 5);
+    setCookie('Screen height', getScreenHeight(), 5);
+    print('Cookies saved succesfully');
+}
+
+function removeModals() {
+    modalOne.classList.remove('block');
+    modalTwo.classList.remove('block');
+    modalBg.classList.remove('modal-bg-dark');
+}
+
 onEvent('click', acceptBtn, () => {
-    setCookie('Browser', getBrowser(), 15);
-    setCookie('Operating system', getOS(), 15);
-    setCookie('Screen width', getScreenWidth(), 15);
-    setCookie('Screen height', getScreenHeight(), 15);
-    // print(document.cookie);
-    // print(getCookie('Browser'));
+    setAllCookies();
+    removeModals();
 });
+
+function setPreferences(arr) {
+    let options = ['Browser', 'Operating system', 'Screen width', 'Screen height']
+    let functions = [getBrowser(), getOS(), getScreenWidth(), getScreenHeight()];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].checked) {
+            setCookie(`${options[i]}`, functions[i], 5);
+        }
+    }
+    allRejected(arr);
+    print('Cookies saved successfully');
+}
+
+function allRejected(arr) {
+    if (arr.every(ele => !ele.checked)) {
+        setCookie('Cookies', 'All rejected', 15);
+    }
+}
 
 onEvent('click', saveBtn, () => {
     let inputs = selectAll('.modal-two input');
     setPreferences(inputs);
+    removeModals();
 })
-
-function setPreferences(arr) {
-    let options = ['Browser', 'Operating System', 'Screen width', 'Screen Height']
-    let functions = [getBrowser(), getOS(), getScreenWidth(), getScreenHeight()];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].checked) {
-            setCookie(`${options[i]}`, functions[i], 15);
-        }
-    }
-}
 
 function getBrowser() {
     let browserArr = navigator.userAgent.split(' ');
@@ -72,11 +96,11 @@ function getOS() {
 }
 
 function getScreenHeight() {
-    return window.innerHeight;
+    return `${window.innerHeight}px`;
 }
 
 function getScreenWidth() {
-    return window.innerWidth;
+    return `${window.innerWidth}px`;
 }
 
 function getCookie(name) {
@@ -84,13 +108,9 @@ function getCookie(name) {
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
 
-    return matches ? decodeURIComponent(matches[1]) : undefined;
+    return matches ? decodeURIComponent(matches[1]) : 'rejected';
 }
-
-// print(getCookie('Browser'));
 
 function setCookie(name, value, life) {
     document.cookie = `${name}=${value}; path=/; max-age=${life}; SameSite=Lax`;
 }
-
-print(document.cookie);
