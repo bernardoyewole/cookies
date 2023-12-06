@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+@import url(./reset.css);
+
+.container {
+    width: min(100% - 30px, 1080px);
+    margin-inline: auto;
+}
+
+/* ------------------Main style------------------ */
+/* ---------------------------------------------- */
+
+main {
+    height: 100%;
+}
+
+.content {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.content p {
+    color: #fff;
+    font-size: 28px;
+}
+
+span:first-of-type {
+    color: #c1ffb6;
+}
+
+span {
+    text-decoration: underline dotted;
+    color: #d79ca4;
+}
+
+.modal {
+    background-color: #fff;
+    position: absolute;
+    height: 264px;
+    top: 30%;
+    left: 38%;
+    right: 38%;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.modal h1 {
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.modal p {
+    padding-bottom: 30px;
+}
+
+.accept {
+    background-color: #3C57FF;
+    height: 44px;
+    width: 100px;
+    border-radius: 24px;
+    color: #fff;
+    margin-right: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.settings {
+    border: 2px solid #3C57FF;
+    height: 44px;
+    width: 100px;
+    background-color: #fff;
+    border-radius: 24px;
+    color: #3C57FF;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* .dialog {
+    background-color: #fff;
+    display: grid;
+    place-items: center;
+    max-width: 30%;
+    border-radius: 3px;
+    padding: 40px 40px 50px 40px;
+}
+
+.dialog h2 {
+    text-align: center;
+}
+
+.dialog input {
+    background-color:#eaeff2;
+    padding: 15px 25px;
+    display: block;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 17px;
+} */
+
+/* .dialog input[type="button"] {
+    background-color: #000;
+    width: 100%; 
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    margin-top: 10px;
+    transition: all 0.3s ease-out;
+}
+
+.dialog input[type="button"]:hover {
+    background-color: #232932;
+}
+
+.dialog a {
+    text-decoration: none;
+    color: #706f6f;
+    font-size: 14px;
+    transition: all 0.3s ease-out;
+}
+
+.dialog a:hover {
+    color: #000;
+}
+
+.email {
+    margin-bottom: 10px;
+}
+
+.pass {
+    margin-bottom: 5px;
+} */
+
+.is-hidden {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+.modal-bg-dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0 0 0 / 0.5);
+}
