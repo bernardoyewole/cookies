@@ -14,14 +14,18 @@ function showModal() {
     modalBg.classList.add('modal-bg-dark');
 }
 
+function printAllCookies() {
+    print(`Browser: ${getCookie('Browser')}`);
+    print(`Operating system: ${getCookie('Operating system')}`);
+    print(`Screen width: ${getCookie('Screen width')}`);
+    print(`Screen height: ${getCookie('Screen height')}`);
+}
+
 onEvent('load', window, () => {
     if (!document.cookie.length > 0) {
         setTimeout(showModal, 2000);
     } else {
-        print(`Browser: ${getCookie('Browser')}`);
-        print(`Operating system: ${getCookie('Operating system')}`);
-        print(`Screen width: ${getCookie('Screen width')}`);
-        print(`Screen height: ${getCookie('Screen height')}`);
+       printAllCookies();
     }
 });
 
@@ -30,10 +34,10 @@ onEvent('click', settingsBtn, () => {
 });
 
 function setAllCookies() {
-    setCookie('Browser', getBrowser(), 5);
-    setCookie('Operating system', getOS(), 5);
-    setCookie('Screen width', getScreenWidth(), 5);
-    setCookie('Screen height', getScreenHeight(), 5);
+    setCookie('Browser', getBrowser(), 15);
+    setCookie('Operating system', getOS(), 15);
+    setCookie('Screen width', getScreenWidth(), 15);
+    setCookie('Screen height', getScreenHeight(), 15);
     print('Cookies saved succesfully');
 }
 
@@ -53,7 +57,7 @@ function setPreferences(arr) {
     let functions = [getBrowser(), getOS(), getScreenWidth(), getScreenHeight()];
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].checked) {
-            setCookie(`${options[i]}`, functions[i], 5);
+            setCookie(`${options[i]}`, functions[i], 15);
         }
     }
     allRejected(arr);

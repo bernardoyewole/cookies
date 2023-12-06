@@ -24,6 +24,7 @@ main {
 .content p {
     color: #fff;
     font-size: 28px;
+    font-weight: 500;
 }
 
 .content span:first-of-type {
@@ -84,6 +85,11 @@ main {
     margin-right: 16px;
     font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.accept:hover, .save:hover {
+    background-color: #3147da;
 }
 
 .settings {
@@ -95,6 +101,11 @@ main {
     color: #3C57FF;
     font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.settings:hover {
+    background-color: #daedf4;
 }
 
 .switch {
@@ -164,6 +175,7 @@ input:checked+.slider:before {
     font-weight: 500;
     margin-top: 14px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .modal-one, .modal-two {
@@ -174,11 +186,32 @@ input:checked+.slider:before {
     display: block;
 }
 
-/* .is-hidden {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
+/* ---------------Media Queries------------------ */
+/* ---------------------------------------------- */
+@media screen and (max-width: 1385px) {
+    .modal {
+        left: 36%;
+        right: 36%;
+    }
 }
-*/
+
+@media screen and (max-width: 1201px) {
+    .modal {
+        left: 34%;
+        right: 34%;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .modal {
+        left: 32%;
+        right: 32%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .modal {
+        left: 30%;
+        right: 30%;
+    }
+}

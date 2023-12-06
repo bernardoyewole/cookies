@@ -1,5 +1,5 @@
-## Typing Game
-Click [here](https://bernardoyewole.github.io/typing-game/) to check it out.
+## Handling Coookies
+Click [here](https://bernardoyewole.github.io/cookies/) to check it out.
 
 ## Built With
 <p>
