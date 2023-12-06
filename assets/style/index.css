@@ -156,7 +156,7 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
-.saved {
+.save {
     background-color: #3C57FF;
     border-radius: 22px;
     padding: 10px 20px;
