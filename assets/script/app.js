@@ -80,31 +80,31 @@ function getBrowser() {
     let browserArr = navigator.userAgent.split(' ');
     for (let i = browserArr.length - 1; i >= 0;  i--) {
         if (browserArr[i].match(/firefox/i)) {
-            return `Firefox`;
+            return encodeURIComponent(`Firefox`);
         } else if (browserArr[i].match(/edg/i)) {
-            return `Edge`;
+            return encodeURIComponent(`Edge`);
         } else {
-            return `Chrome`;
+            return encodeURIComponent(`Chrome`);
         }
     }
 }
 
 function getOS() {
     if (navigator.userAgent.indexOf("Windows") != -1) {
-        return 'Windows';
+        return encodeURIComponent(`Windows`);
     } else if (navigator.userAgent.indexOf("Mac OS") != -1) {
-        return 'Mac OS';
+        return encodeURIComponent(`Mac OS`);
     } else {
-        return 'Linux';
+        return encodeURIComponent(`Linux`);
     } 
 }
 
 function getScreenHeight() {
-    return `${window.innerHeight}px`;
+    return encodeURIComponent(`${window.innerHeight}px`);
 }
 
 function getScreenWidth() {
-    return `${window.innerWidth}px`;
+    return encodeURIComponent(`${window.innerWidth}px`);
 }
 
 function getCookie(name) {
